@@ -1,0 +1,16 @@
+.env
+cloudinary/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+.env
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+dist/
+build/  
+venv/
