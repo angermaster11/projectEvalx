@@ -6,6 +6,7 @@ from datetime import datetime
 import base64, io
 import cloudinary.uploader
 from config.db import db
+from graph.ppt_evaluator import analyze_ppt_with_gpt
 from middlewares.auth_required import organizer_required, auth_required
 
 router = APIRouter(tags=["Events"])
@@ -63,6 +64,11 @@ async def upload_round1_file(file: UploadFile, folder_name: str = "submissions/r
         return url
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"File upload failed: {str(e)}")
+
+def get_mean_score(output):
+    scores = [x["score"] for x in output if "score" in x]
+    return round(sum(scores) / len(scores), 3) if scores else 0
+
 
 def validate_submission_by_round(round_num: int, data: dict) -> dict:
     if round_num == 1:
@@ -220,6 +226,24 @@ async def submit_to_event(event_id: str, payload: SubmissionCreate, user: dict =
         exists = await submissions_col.find_one({"event_id": oid, "user_id": uid, "round": payload.round})
         if exists:
             raise HTTPException(status_code=409, detail="Submission already exists for this round")
+        score = 0.0
+        if(payload.round == 1):
+            file_url = data.get("file_url")
+            if not is_url(file_url):
+                raise HTTPException(status_code=482, detail="Round 1 requires file_url")
+            data["type"] = "ppt_or_doc"
+            analysis = await analyze_ppt_with_gpt({
+                "mode" : "ppt",
+                "file_path" : file_url,
+                "content" : data.get("content","AI Generated Content Pitch"),
+                "output" : None
+            })
+            score = get_mean_score(analysis["output"])
+
+
+
+
+
         submission = {
             "event_id": oid,
             "user_id": uid,
@@ -227,7 +251,7 @@ async def submit_to_event(event_id: str, payload: SubmissionCreate, user: dict =
             "data": data,
             "scores": {},
             "status": "submitted",
-            "total_score": None,
+            "total_score": score,
             "created_at": datetime.utcnow(),
             "updated_at": datetime.utcnow()
         }

@@ -19,3 +19,4 @@ httpx
 pydantic
 python-multipart
 cloudinary
+python-pptx
