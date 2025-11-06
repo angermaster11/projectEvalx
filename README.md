@@ -58,14 +58,6 @@ Database (PostgreSQL or MongoDB)
 
 .env file with API keys (OpenAI, SonarQube, etc.)
 
-Installation
-
-Clone Repo:
-
-git clone [https://github.com/your-username/evalx.git](https://github.com/your-username/evalx.git)
-cd evalx
-
-
 Configure Environment:
 
 Create .env files in client, server/fastapi_app, and server/node_app from the .env.example files and add your API keys.
