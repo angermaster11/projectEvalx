@@ -1,98 +1,109 @@
-EVALX: An AI-Powered Project Evaluation Tool
+<!--
+Note: The font family is controlled by the Markdown viewer (like GitHub).
+This file uses formatting (bolding, icons, spacing) to make the content more attractive.
+-->
+
+<div align="center">
+
+🚀 EVALX: An AI-Powered Project Evaluation Tool 🚀
 
 A mini-project for GLA University, Mathura, designed to automate and enhance project evaluations using AI.
 
-Core Features:
+</div>
 
-🤖 Automated Content Analysis (NLP)
+✨ Core Features
 
-💻 Static Code Assessment (SonarQube API)
+🤖 Automated Content Analysis: In-depth NLP analysis of project reports and documentation.
 
-🎙️ Interactive AI Q&A (LLM-based)
+💻 Static Code Assessment: Integrates with SonarQube & DeepSource APIs for code quality metrics.
 
-Team T93: Khushi Gangwar, Arju Srivastav, Deepa Chaudhary
+🎙️ Interactive AI Q&A: An LLM-based assistant to answer questions about the project's content.
 
-1. Problem & Solution
+🎯 Problem & Solution
 
-Problem: Traditional project evaluation is manual, slow, subjective, and provides inconsistent feedback.
+The Problem
 
-Solution: EVALX provides an objective, efficient, and scalable AI tool to assist professors. It analyzes submissions, assesses code quality, and generates automated feedback.
+Traditional project evaluation is manual, time-consuming, subjective, and often provides inconsistent feedback to students.
 
-2. Technology Stack
+Our Solution
 
-Category
+EVALX provides an objective, efficient, and scalable AI-powered tool to assist professors. It intelligently analyzes submissions, assesses code quality, and generates comprehensive, automated feedback.
 
-Technology
+💻 Technology Stack
+
+Our project is built with a modern, robust, and scalable tech stack.
 
 Frontend
 
-React.js, Next.js, TailwindCSS
-
 Backend
-
-FastAPI, Node.js
 
 AI / NLP
 
-OpenAI GPT, Hugging Face, LangChain
-
 Code Analysis
-
-SonarQube, DeepSource APIs
 
 Databases
 
-PostgreSQL, MongoDB
-
 Cloud & DevOps
 
-AWS, GCP, Azure
-
-3. Getting Started
+🛠️ Getting Started
 
 Prerequisites
 
-Node.js (v18+), Python (v3.9+), pip
+Node.js (v18+)
 
-Database (PostgreSQL or MongoDB)
+Python (v3.9+) & pip
 
-.env file with API keys (OpenAI, SonarQube, etc.)
+A running instance of PostgreSQL or MongoDB
 
-Configure Environment:
+.env file with your API keys (OpenAI, SonarQube, etc.)
 
-Create .env files in client, server/fastapi_app, and server/node_app from the .env.example files and add your API keys.
+1. Configure Environment
 
-Run Backend (FastAPI):
+Create .env files in client, server/fastapi_app, and server/node_app from the .env.example files. Add all your required API keys and database connection strings.
+
+2. Run Backend (FastAPI)
 
 cd server/fastapi_app
 pip install -r requirements.txt
 uvicorn main:app --reload
 
 
-Run Backend (Node.js):
+3. Run Backend (Node.js)
 
-# New terminal
+(In a new terminal)
+
 cd server/node_app
-npm install && npm run dev
+npm install
+npm run dev
 
 
-Run Frontend (Next.js):
+4. Run Frontend (Next.js)
 
-# New terminal
+(In a new terminal)
+
 cd client
-npm install && npm run dev
+npm install
+npm run dev
 
 
-Access at http://localhost:3000.
+🎉 Your application should now be accessible at http://localhost:3000.
 
-4. Future Work
+🔮 Future Work
 
-Improve scoring engine accuracy with fine-tuning.
+Improve the scoring engine's accuracy with fine-tuned models.
 
-Train Q&A model on more technical domains.
+Train the Q&A model on more diverse and technical domains.
 
-Conduct formal user testing (UI/UX) with professors.
+Conduct formal UI/UX testing with professors to refine the interface.
 
-5. License
+👥 Team T93
 
-MIT License
+Khushi Gangwar
+
+Arju Srivastav
+
+Deepa Chaudhary
+
+📄 License
+
+This project is licensed under the MIT License.
